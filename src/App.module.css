@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Общие стили остаются те же */
+.app {
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", system-ui;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+.left {
+  display: flex;
+  position: fixed; 
+  flex-direction: column;
+  width: 16vw;
+  border-right: 0.1vw solid black;
+  height: 100%;
+  padding: 2vw 1vw 1vw 2vw;
+  font-size: 1.2em;
+  font-weight: 900;
+  align-items: center;
+}
+
+.add {
+  margin: 3vw 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  cursor: pointer;
+  width: 2.5em;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+/* Блок цветов */
+.colors {
+  opacity: 1; 
+  pointer-events: auto; 
+  transform: translateY(0); 
+}
+
+
+/* Показ цветов при наведении */
+/* .left:hover .color1,
+.left:focus-within .color1,
+.left:hover .color2,
+.left:focus-within .color2,
+.left:hover .color3,
+.left:focus-within .color3,
+.left:hover .color4,
+.left:focus-within .color4 {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+.right{
+  margin-left: 15vw;
+}
+.search{
+  width: 80%;
+  background-color: #ffff;
+  padding-left: 1vw;
+  /* position: fixed;
+  height: 6vw;
+  top: 0; */
+}
+.noTaskMessage{
+  font-size: 2em;
+  font-weight: 500;
+  margin-left: 1vw;
+}
+.logo{
+  font-size: 1.4em;
+}
+/* Цветные элементы */
+.colors div {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 1.5vw;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.color1 {
+  background-color: #98C1D9;
+}
+
+.color2 {
+  background-color: #3D5A80;
+}
+
+.color3 {
+  background-color: #293241;
+}
+
+.color4 {
+  background-color: #EE6C4D;
+}
+
+/* Анимации появления элементов один за другим */
+.left:hover .color1,
+.left:focus-within .color1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.left:hover .color2,
+.left:focus-within .color2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.left:hover .color3,
+.left:focus-within .color3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.left:hover .color4,
+.left:focus-within .color4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+.app{
+  display: flex;
+}
+.search input{
+  border: 0;
+}
+.deleteAll{
+  width: 2.5em;
+  height: 2.5em;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 40vh;
+}
+.none{
+  display: none;
+}
+.deleteAll img{
+  width: 1.8em;
+  height: 1.8em;
+}
+.search input:focus{
+  outline: none;
+}
+.search{
+  margin: 2vw 1vw;
+  display: flex;
+}
+.search img{
+  margin: 0 0.5vw;
+  width: 1.3em;
+  height: 1.3em;
+  
+}
+.items{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 6vw;
+grid-row-gap: 2vw;
+padding: 0vw 6vw;
+justify-content: center;
+align-items: center;
+padding-bottom: 3vw;
+}
+.modal{
+  position: fixed; /* Фиксированная позиция */
+  top: 0;          /* Верхний край экрана */
+  left: 0;         /* Левый край экрана */
+  width: 100%;     /* Ширина 100% */
+  height: 100%;    /* Высота 100% */
+  background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный черный фон */
+  display: flex;   /* Центровка содержимого */
+ 
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center;     /* Центрирование по вертикали */
+  z-index: 1;  /* Высокий z-index для перекрытия всего остального */
+}
+.modalContent{
+  z-index: 2;
+  background-color: white;
+  padding: 3vw 6vw;
+  border-radius: 1vw;
+  font-size: 1.5vw;
+}
+.buttons{
+  margin: 3vw 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+.button{
+  margin: 3vw 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button button{
+  background-color: #293241;
+  color: white;
+}
+.button button:hover{
+  background-color: #1e2b42;
+}
+.delete{
+  background-color: #EE6C4D;
+  color: white;
+}
+.delete:hover{
+  background-color: #f05f3a;
+}
+.cancel:hover{
+  background-color: #1e2b42;
+
+}
+.cancel{
+  background-color: #293241;
+  color: white;
+}
+.modalContent button{
+  border: 0;
+  cursor: pointer;
+  height: 3vw;
+  width: 12vw;
+  border-radius: 0.4vw;
+}
+.search1{
+  display: flex;
+}
+/* *{
+  outline: solid green 3px;
+} */
+@media only screen and (max-width: 860px){
+  .left{
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .items{
+    grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(1, 1fr);
+grid-column-gap:3vw ;
+grid-row-gap: 3vw;
+  }
+  .modalContent{
+    padding: 4vw 8vw;
+    font-size: 1.5em;
+  }
+  .modalContent button{
+    height: 6vw;
+    width: 17vw;
+  }
+  .left{
+    font-size: 0.7em;
+  }
+  .add{
+    width: 5vw;
+    height: 5vw;
+  }
+  .add img{
+    width: 3vw;
+    height: 3vw;
+  }
+  .items{
+    padding-bottom: 3vw;
+    margin-left: 4vw;
+    padding-bottom: 5vw;
+  }
+  .deleteAll{
+    width: 5vw;
+    height: 5vw;
+  }
+  .deleteAll img{
+    height: 3vw;
+    width: 3vw;
+  }
+  .colors div{
+    width: 3vw;
+    height: 3vw;
+  }
+  .logo{
+    margin-right: 2vw;
+  }
+  .noTaskMessage{
+    width: 75vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .modalContent{
+    /* padding: 2vw 4vw; */
+    font-size: 1em;
+  }
+  .modalContent button{
+    height: 10vw;
+    width: 17vw;
+  }
+  .logo_mobile{
+    font-size: 1.2em;
+    padding-right: 10vw;
+    font-weight: 700;
+  }
+  
+  .search{
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+    /* padding: 0 0 0 2vw; */
+    padding: 0 6vw;
+  }
+  .search1{
+    margin-left: 25vw;
+  }
+  .search input{
+    width: 20vw;
+  }
+  .left {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vw;
+    background-color: white;
+    border-right: none;
+    border-top: 0.1vw solid black;
+  }
+  .logo{
+    display: none;
+  }
+ 
+  .colors {
+    display: flex;
+    flex-direction: row; /* Горизонтальная ориентация */
+    justify-content: center;
+    margin-top: 0;
+    transform: 0;
+    pointer-events: none;
+  }
+
+  .colors_mobile div {
+    width: 7vw;
+    height: 7vw;
+    margin: 0 2vw;
+    border-radius: 50%;
+  }
+
+  .add {
+    display: none;
+  }
+
+  .deleteAll {
+    position: fixed;
+    width: 7vw;
+    height: 7vw;
+    margin: 0 0 0 85vw ;
+  }
+  .deleteAll img{
+    width: 5vw;
+    height: 5vw;
+  }
+  .items{
+    padding-top: 3vw;
+    padding-bottom:15vw;
+    margin-left: 2vw;
+  }
+  .noTaskMessage {
+    font-size: 1.5em;
+  }
+
+  .right {
+    margin-left: 0;
+  }
+  .colors_mobile{
+    display: flex;
+  }
+  
+}
+@media only screen and (max-width: 400px){
+  .logo_mobile{
+    font-size: 5vw;
+  }
+  .search input{
+    font-size: 5vw;
+  }
+}
+
